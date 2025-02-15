@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "path": "../",
+      "name": "root"
+    },
+    {
+      "path": "../packages/app",
+      "name": "app"
+    },
+    {
+      "path": "../packages/core",
+      "name": "core"
+    },
+    {
+      "path": "../packages/extension",
+      "name": "extension"
+    }
+  ]
+}

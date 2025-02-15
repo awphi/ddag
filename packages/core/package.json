@@ -1,0 +1,11 @@
+{
+  "name": "@ddag/core",
+  "version": "0.1.0",
+  "description": "Define the flow of your in-memory data in a highly customisable, framework-agnostic DAG",
+  "main": "src/index.ts",
+  "keywords": [
+    "TODO"
+  ],
+  "author": "awphi (admin@adamw.ph)",
+  "license": "GPL-3.0-only"
+}
