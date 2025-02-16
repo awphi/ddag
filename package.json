@@ -11,7 +11,8 @@
     "typescript": "~5.6.2"
   },
   "scripts": {
-    "dev": "concurrently -p \"[{time}] ({name})\" -n \"site,core\" -t \"HH:mm:ss.SSS\" -c \"blue,magenta\" \"pnpm run -F @ddag/site dev\" \"pnpm run -F @ddag/core dev\""
+    "dev": "concurrently -p \"[{time}] ({name})\" -n \"site,core\" -t \"HH:mm:ss.SSS\" -c \"blue,magenta\" \"pnpm run -F @ddag/site dev\" \"pnpm run -F @ddag/core dev\"",
+    "build": "pnpm -F @ddag/core build && pnpm -F @ddag/site build"
   },
   "engines": {
     "node": ">=20.0"
