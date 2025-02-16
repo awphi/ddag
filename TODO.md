@@ -1,6 +1,8 @@
 - Setup a sandbox and some examples in @ddag/site
 - Write some docs
 - Generate an API reference w/ typedoc-plugin-markdown and relevant docusaurus plugin
+- Publish package on npm w/ GH action
+
 - Foundation in place - now time work on extension!
   - Use wtx
   - Comms structure is @ddag/core <-(window.postMessage/window.addEventListener('message'))-> content script -(browser.runtime.onMessage)-> devtools script

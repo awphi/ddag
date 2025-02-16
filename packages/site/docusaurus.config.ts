@@ -52,6 +52,11 @@ const config: Config = {
           label: "Tutorial",
         },
         {
+          to: "/playground",
+          position: "left",
+          label: "Playground",
+        },
+        {
           href: "https://github.com/awphi/ddag",
           label: "GitHub",
           position: "right",

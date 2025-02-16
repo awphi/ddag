@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Define the flow of your in-memory data in a highly customisable, framework-agnostic DAG",
   "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
   "type": "module",
   "keywords": [
     "data",
@@ -13,13 +14,14 @@
     "./dist"
   ],
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc -w",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "test": "vitest run"
   },
   "author": "awphi (admin@adamw.ph)",
   "license": "GPL-3.0-only",
   "devDependencies": {
+    "tsup": "^8.3.6",
     "vitest": "^3.0.5"
   }
 }
