@@ -4,7 +4,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
   title: "ddag",
-  tagline: "data-driven directed acyclic graphs",
+  tagline: "Data-driven directed acyclic graphs",
   favicon: "img/favicon.ico",
   url: "https://example.com", // TODO set this properly
   baseUrl: "/",
@@ -32,11 +32,15 @@ const config: Config = {
     ],
   ],
   themeConfig: {
+    colorMode: {
+      respectPrefersColorScheme: true,
+      defaultMode: "dark",
+    },
     image: "img/docusaurus-social-card.jpg", // TODO social card
     navbar: {
-      title: "My Site",
+      title: "ddag",
       logo: {
-        alt: "My Site Logo",
+        alt: "ddag Logo",
         src: "img/logo.svg",
       },
       items: [
@@ -52,30 +56,6 @@ const config: Config = {
           position: "right",
         },
       ],
-    },
-    footer: {
-      style: "dark",
-      links: [
-        {
-          title: "Docs",
-          items: [
-            {
-              label: "Tutorial",
-              to: "/docs/intro",
-            },
-          ],
-        },
-        {
-          title: "More",
-          items: [
-            {
-              label: "GitHub",
-              href: "https://github.com/awphi/ddag",
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} ddag maintainers, Inc. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
