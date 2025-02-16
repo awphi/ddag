@@ -203,3 +203,17 @@ it("works with disabled cache", () => {
   derived();
   expect(computeCount).toBe(5);
 });
+
+it("clears derived node caches on graph destroy", () => {
+  const g = graph();
+  const source = g.source(1);
+  const cache = lru<unknown[], number>(1);
+
+  const derived = g.derived(() => source() * 2, [source], { cache });
+
+  expect(cache.get([1])).toBe(null);
+  derived();
+  expect(cache.get([1])).toBe(2);
+  g.destroy();
+  expect(cache.get([1])).toBe(null);
+});

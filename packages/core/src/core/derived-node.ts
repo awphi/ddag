@@ -8,7 +8,7 @@ export class DerivedNodeInternal<T = unknown> extends GraphNodeInternal<T> {
     private fn: () => T,
     private deps: GraphNodeInternal[],
     public readonly eager: boolean,
-    private cache: MultiCache<unknown[], T> | null
+    public readonly cache: MultiCache<unknown[], T> | null
   ) {
     super(name);
   }

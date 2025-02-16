@@ -72,6 +72,7 @@ class Graph {
       }
     );
     this._externalToInternal.set(sourceNodeExternal, sourceNode);
+    this._allNodes.add(sourceNode);
     return sourceNodeExternal;
   }
 
@@ -101,6 +102,7 @@ class Graph {
     );
     const derivedNodeExternal = derivedNode.get.bind(derivedNode);
     this._externalToInternal.set(derivedNodeExternal, derivedNode);
+    this._allNodes.add(derivedNode);
 
     for (const dep of depsInternal) {
       if (!this._links.has(dep)) {
@@ -128,6 +130,11 @@ class Graph {
   }
 
   destroy(): void {
+    for (const v of this._allNodes) {
+      if (v instanceof DerivedNodeInternal) {
+        v.cache?.clear();
+      }
+    }
     this._links.clear();
     this._allNodes.clear();
     // TODO inform devtools

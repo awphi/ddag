@@ -42,6 +42,10 @@ class LRUMultiCache<K extends unknown[], V> implements MultiCache<K, V> {
 
     this.cache.set(key, value);
   }
+
+  clear(): void {
+    this.cache.clear();
+  }
 }
 
 export function lru<K extends unknown[], V>(

@@ -1,15 +1,15 @@
 import { it, expect } from "vitest";
-import { LRUMultiCache } from "./lru.js";
+import { lru } from "./lru.js";
 
 it("should store and retrieve values with array keys", () => {
-  const cache = new LRUMultiCache<[string, number], string>(3);
+  const cache = lru<[string, number], string>(3);
   cache.set(["a", 1], "value1");
 
   expect(cache.get(["a", 1])).toBe("value1");
 });
 
 it("should handle array key equality correctly", () => {
-  const cache = new LRUMultiCache<[string, number], string>(3);
+  const cache = lru<[string, number], string>(3);
   cache.set(["a", 1], "value1");
 
   // different array instance but same values should work
@@ -17,7 +17,7 @@ it("should handle array key equality correctly", () => {
 });
 
 it("should maintain LRU order and respect capacity", () => {
-  const cache = new LRUMultiCache<[string], number>(2);
+  const cache = lru<[string], number>(2);
 
   cache.set(["a"], 1);
   cache.set(["b"], 2);
@@ -30,7 +30,7 @@ it("should maintain LRU order and respect capacity", () => {
 });
 
 it("should update access order on get", () => {
-  const cache = new LRUMultiCache<[string], number>(2);
+  const cache = lru<[string], number>(2);
 
   cache.set(["a"], 1);
   cache.set(["b"], 2);
@@ -47,7 +47,7 @@ it("should update access order on get", () => {
 });
 
 it("should update existing keys with new values", () => {
-  const cache = new LRUMultiCache<[string, number], string>(3);
+  const cache = lru<[string, number], string>(3);
 
   cache.set(["a", 1], "original");
   cache.set(["a", 1], "updated");
@@ -56,7 +56,21 @@ it("should update existing keys with new values", () => {
 });
 
 it("should handle empty cache correctly", () => {
-  const cache = new LRUMultiCache<[string], number>(1);
+  const cache = lru<[string], number>(1);
 
   expect(cache.get(["nonexistent"])).toBeNull();
+});
+
+it("should clear all entries from the cache", () => {
+  const cache = lru<[string], number>(3);
+
+  cache.set(["a"], 1);
+  cache.set(["b"], 2);
+  cache.set(["c"], 3);
+
+  cache.clear();
+
+  expect(cache.get(["a"])).toBeNull();
+  expect(cache.get(["b"])).toBeNull();
+  expect(cache.get(["c"])).toBeNull();
 });

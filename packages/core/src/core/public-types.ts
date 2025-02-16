@@ -24,4 +24,5 @@ export interface DerivedGraphNode<T = unknown> extends GraphNode<T> {}
 export interface MultiCache<K extends unknown[], V> {
   get(key: K): V | null;
   set(key: K, value: V): void;
+  clear(): void;
 }
