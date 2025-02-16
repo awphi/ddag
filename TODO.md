@@ -1,6 +1,4 @@
 - Setup a sandbox and some examples in @ddag/site
-- Setup repo
-- Deploy w/ vercel
 - Write some docs
 - Generate an API reference w/ typedoc-plugin-markdown and relevant docusaurus plugin
 - Foundation in place - now time work on extension!
