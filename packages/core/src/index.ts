@@ -1,2 +1,2 @@
-export * from "./core/graph";
-export * from "./core/public-types";
+export * from "./core/graph.js";
+export * from "./core/public-types.js";

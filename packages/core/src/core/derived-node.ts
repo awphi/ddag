@@ -1,5 +1,5 @@
-import { GraphNodeInternal } from "./graph-node";
-import type { MultiCache } from "./public-types";
+import { GraphNodeInternal } from "./graph-node.js";
+import type { MultiCache } from "./public-types.js";
 
 /** @internal */
 export class DerivedNodeInternal<T = unknown> extends GraphNodeInternal<T> {

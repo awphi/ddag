@@ -1,5 +1,5 @@
-import { DerivedNodeInternal } from "./derived-node";
-import type { GraphNodeInternal } from "./graph-node";
+import { DerivedNodeInternal } from "./derived-node.js";
+import type { GraphNodeInternal } from "./graph-node.js";
 import type {
   DerivedGraphNode,
   DerivedNodeOptions,
@@ -7,8 +7,8 @@ import type {
   GraphNode,
   SourceGraphNode,
   SourceNodeOptions,
-} from "./public-types";
-import { SourceNodeInternal } from "./source-node";
+} from "./public-types.js";
+import { SourceNodeInternal } from "./source-node.js";
 
 let nextId: number = 0;
 

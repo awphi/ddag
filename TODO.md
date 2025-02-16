@@ -4,4 +4,9 @@
 - Deploy w/ vercel
 - Write some docs
 - Generate an API reference w/ typedoc-plugin-markdown and relevant docusaurus plugin
-- Delete the extension, can come back to this later & make it typesafe!
+- Foundation in place - now time work on extension!
+  - Use wtx
+  - Comms structure is @ddag/core <-(window.postMessage/window.addEventListener('message'))-> content script -(browser.runtime.onMessage)-> devtools script
+  - Make it typesafe!
+  - Think about how this will be distributed - two builds of @ddag/core?
+  - Think about protocol - maybe an RPC pattern would make things easier so we can surgically update a mirror copy of the graph matched via the unique numeric node/graph IDs

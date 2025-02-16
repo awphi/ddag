@@ -1,5 +1,5 @@
-import { arraysEqual } from "../util";
-import type { MultiCache } from "../public-types";
+import { arraysEqual } from "../util.js";
+import type { MultiCache } from "../public-types.js";
 
 export class LRUMultiCache<K extends unknown[], V> implements MultiCache<K, V> {
   private cache = new Map<K, V>();
