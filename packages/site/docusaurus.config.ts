@@ -7,7 +7,7 @@ const config: Config = {
   tagline:
     "Define the flow of your in-memory data in a highly customisable, framework-agnostic DAG",
   favicon: "img/favicon.ico",
-  url: "https://example.com", // TODO set this properly
+  url: "https://ddag.vercel.app/",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
