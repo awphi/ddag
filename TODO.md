@@ -1,4 +1,3 @@
-- Add vitest and write some tests in @ddag/core
 - Setup a sandbox and some examples in @ddag/site
 - Setup repo
 - Deploy w/ vercel

@@ -3,13 +3,12 @@ import type { MultiCache } from "./public-types.js";
 
 /** @internal */
 export class DerivedNodeInternal<T = unknown> extends GraphNodeInternal<T> {
-  private cache: MultiCache<unknown[], T> | null = null;
-
   constructor(
     name: string | undefined,
     private fn: () => T,
     private deps: GraphNodeInternal[],
-    public readonly eager: boolean
+    public readonly eager: boolean,
+    private cache: MultiCache<unknown[], T> | null
   ) {
     super(name);
   }

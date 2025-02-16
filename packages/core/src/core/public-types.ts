@@ -4,8 +4,9 @@ export interface GraphNodeOptions {
 
 export interface SourceNodeOptions extends GraphNodeOptions {}
 
-export interface DerivedNodeOptions extends GraphNodeOptions {
+export interface DerivedNodeOptions<V> extends GraphNodeOptions {
   eager: boolean;
+  cache: MultiCache<unknown[], V> | null;
 }
 
 export interface EffectNodeOptions extends GraphNodeOptions {}

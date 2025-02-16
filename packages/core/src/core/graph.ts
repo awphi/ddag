@@ -1,3 +1,4 @@
+import { LRUMultiCache } from "./caching/lru.js";
 import { DerivedNodeInternal } from "./derived-node.js";
 import type { GraphNodeInternal } from "./graph-node.js";
 import type {
@@ -35,7 +36,8 @@ class Graph {
       traversed.push(current!);
 
       if (visited.has(current)) {
-        throw new Error("Cycle detected"); // TODO more helpful error message
+        // should never be possible to hit given current API design
+        throw new Error("Cycle detected");
       }
 
       // Enqueue all children of the current node, if they exist in the tree
@@ -76,7 +78,7 @@ class Graph {
   derived<T>(
     fn: () => T,
     deps: GraphNode[],
-    opts?: Partial<DerivedNodeOptions>
+    opts?: Partial<DerivedNodeOptions<T>>
   ): DerivedGraphNode<T> {
     const depsInternal: GraphNodeInternal[] = [];
 
@@ -88,14 +90,33 @@ class Graph {
       depsInternal.push(internalDep);
     }
 
-    const derived = new DerivedNodeInternal<T>(
+    const eager = opts?.eager ?? false;
+    const cache =
+      opts?.cache === undefined
+        ? new LRUMultiCache<unknown[], T>(1)
+        : opts.cache;
+    const derivedNode = new DerivedNodeInternal<T>(
       opts?.name,
       fn,
       depsInternal,
-      opts?.eager ?? false
+      eager,
+      cache
     );
+    const derivedNodeExternal = derivedNode.get.bind(derivedNode);
+    this._externalToInternal.set(derivedNodeExternal, derivedNode);
 
-    return derived.get.bind(derived);
+    for (const dep of depsInternal) {
+      if (!this._links.has(dep)) {
+        this._links.set(dep, new Set());
+      }
+      this._links.get(dep)!.add(derivedNode);
+    }
+
+    if (eager) {
+      derivedNode.get();
+    }
+
+    return derivedNodeExternal;
   }
 
   effect(

@@ -4,7 +4,8 @@ import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
   title: "ddag",
-  tagline: "Data-driven directed acyclic graphs",
+  tagline:
+    "Define the flow of your in-memory data in a highly customisable, framework-agnostic DAG",
   favicon: "img/favicon.ico",
   url: "https://example.com", // TODO set this properly
   baseUrl: "/",
