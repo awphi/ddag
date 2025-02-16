@@ -1,6 +1,6 @@
 import { it, expect } from "vitest";
 import { graph } from "./graph.js";
-import { LRUMultiCache } from "./caching/lru.js";
+import { lru } from "./caching/lru.js";
 
 it("creates a graph with a name", () => {
   const g = graph("test-graph");
@@ -135,7 +135,7 @@ it("respects cache capacity in derived values", () => {
       return source() * 2;
     },
     [source],
-    { cache: new LRUMultiCache(2) }
+    { cache: lru(2) }
   );
 
   // initial computation

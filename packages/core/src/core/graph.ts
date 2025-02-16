@@ -1,4 +1,4 @@
-import { LRUMultiCache } from "./caching/lru.js";
+import { lru } from "./caching/lru.js";
 import { DerivedNodeInternal } from "./derived-node.js";
 import type { GraphNodeInternal } from "./graph-node.js";
 import type {
@@ -91,10 +91,7 @@ class Graph {
     }
 
     const eager = opts?.eager ?? false;
-    const cache =
-      opts?.cache === undefined
-        ? new LRUMultiCache<unknown[], T>(1)
-        : opts.cache;
+    const cache = opts?.cache === undefined ? lru<unknown[], T>(1) : opts.cache;
     const derivedNode = new DerivedNodeInternal<T>(
       opts?.name,
       fn,

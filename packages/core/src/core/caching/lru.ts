@@ -1,7 +1,7 @@
 import { arraysEqual } from "../util.js";
 import type { MultiCache } from "../public-types.js";
 
-export class LRUMultiCache<K extends unknown[], V> implements MultiCache<K, V> {
+class LRUMultiCache<K extends unknown[], V> implements MultiCache<K, V> {
   private cache = new Map<K, V>();
 
   constructor(private capacity: number) {}
@@ -42,4 +42,10 @@ export class LRUMultiCache<K extends unknown[], V> implements MultiCache<K, V> {
 
     this.cache.set(key, value);
   }
+}
+
+export function lru<K extends unknown[], V>(
+  capacity: number
+): MultiCache<K, V> {
+  return new LRUMultiCache(capacity);
 }
