@@ -5,16 +5,12 @@
       "name": "root"
     },
     {
-      "path": "../packages/app",
-      "name": "app"
+      "path": "../packages/site",
+      "name": "site"
     },
     {
       "path": "../packages/core",
       "name": "core"
-    },
-    {
-      "path": "../packages/extension",
-      "name": "extension"
     }
   ]
 }

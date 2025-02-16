@@ -2,10 +2,18 @@
   "name": "@ddag/core",
   "version": "0.1.0",
   "description": "Define the flow of your in-memory data in a highly customisable, framework-agnostic DAG",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "keywords": [
-    "TODO"
+    "data",
+    "graph",
+    "acyclic"
   ],
+  "files": [
+    "./dist"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
   "author": "awphi (admin@adamw.ph)",
   "license": "GPL-3.0-only"
 }

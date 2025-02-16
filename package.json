@@ -5,5 +5,11 @@
   "private": true,
   "description": "See @ddag/core",
   "author": "awphi (admin@adamw.ph)",
-  "license": "GPL-3.0-only"
+  "license": "GPL-3.0-only",
+  "devDependencies": {
+    "typescript": "~5.6.2"
+  },
+  "engines": {
+    "node": ">=20.0"
+  }
 }

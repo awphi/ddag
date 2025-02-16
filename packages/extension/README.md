@@ -1,3 +1,0 @@
-# @ddag/extension
-
-TODO desc.

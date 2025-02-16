@@ -1,0 +1,7 @@
+- Add vitest and write some tests in @ddag/core
+- Setup a sandbox and some examples in @ddag/site
+- Setup repo
+- Deploy w/ vercel
+- Write some docs
+- Generate an API reference w/ typedoc-plugin-markdown and relevant docusaurus plugin
+- Delete the extension, can come back to this later & make it typesafe!
