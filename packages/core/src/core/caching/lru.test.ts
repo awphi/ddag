@@ -1,5 +1,5 @@
 import { it, expect } from "vitest";
-import { lru } from "./lru.js";
+import { lru } from "./lru";
 
 it("should store and retrieve values with array keys", () => {
   const cache = lru<[string, number], string>(3);

@@ -1,4 +1,4 @@
-import { GraphNodeInternal } from "./graph-node.js";
+import { GraphNodeInternal } from "./graph-node";
 
 /** @internal */
 export class SourceNodeInternal<T = unknown> extends GraphNodeInternal<T> {

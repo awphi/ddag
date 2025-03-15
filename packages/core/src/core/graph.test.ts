@@ -1,6 +1,6 @@
 import { it, expect } from "vitest";
-import { graph } from "./graph.js";
-import { lru } from "./caching/lru.js";
+import { graph } from "./graph";
+import { lru } from "./caching/lru";
 
 it("creates a graph with a name", () => {
   const g = graph("test-graph");

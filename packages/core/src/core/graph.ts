@@ -1,6 +1,6 @@
-import { lru } from "./caching/lru.js";
-import { DerivedNodeInternal } from "./derived-node.js";
-import type { GraphNodeInternal } from "./graph-node.js";
+import { lru } from "./caching/lru";
+import { DerivedNodeInternal } from "./derived-node";
+import type { GraphNodeInternal } from "./graph-node";
 import type {
   DerivedGraphNode,
   DerivedNodeOptions,
@@ -8,8 +8,8 @@ import type {
   GraphNode,
   SourceGraphNode,
   SourceNodeOptions,
-} from "./public-types.js";
-import { SourceNodeInternal } from "./source-node.js";
+} from "./public-types";
+import { SourceNodeInternal } from "./source-node";
 
 let nextId: number = 0;
 

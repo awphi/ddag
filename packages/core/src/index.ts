@@ -1,3 +1,3 @@
-export * from "./core/graph.js";
-export * from "./core/public-types.js";
-export * from "./core/caching/lru.js";
+export * from "./core/graph";
+export * from "./core/public-types";
+export * from "./core/caching/lru";
