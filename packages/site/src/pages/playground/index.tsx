@@ -10,13 +10,20 @@ const defaultPlaygroundContent = `import { graph } from "@ddag/core";
 const g = graph();
 
 const a = g.source(15);
+
 const b = g.derived(() => {
   const r = a() * 2;
-  console.log("derive", r);
+  console.log("derive b", r);
   return r;
 }, [a]);
 
-g.effect(() => console.log("effect", b() * 2), [b]);`;
+const c = g.derived(() => {
+  const r = a() * 4;
+  console.log("derive c", r);
+  return r;
+}, [a]);
+
+g.effect(() => console.log("effect", b() + c()), [b, c]);`;
 
 function Playground(): React.ReactNode {
   const { colorMode } = useColorMode();
