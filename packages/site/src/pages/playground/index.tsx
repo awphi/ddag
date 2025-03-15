@@ -23,7 +23,9 @@ const c = g.derived(() => {
   return r;
 }, [a]);
 
-g.effect(() => console.log("effect", b() + c()), [b, c]);`;
+g.effect(() => {
+  console.log("effect", b() + c());
+}, [b, c]);`;
 
 function Playground(): React.ReactNode {
   const { colorMode } = useColorMode();
